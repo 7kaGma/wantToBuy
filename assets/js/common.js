@@ -1,31 +1,4 @@
-"use strict";
-  /*枠を生成する関数*/
-  function createFrame(){
-    let divFrame =document.createElement("div");
-    divFrame.className="frame";
-
-    let itemtag =document.createElement("h3");
-    itemtag.className="item";
-
-    let imageBox =document.createElement("figure");
-    imageBox.className="imageBox";
-
-    let imageElement =document.createElement("img");
-    imageElement.className="image";
-
-    let priceCard =document.createElement("p");
-    priceCard.className="price";
-
-    imageBox.appendChild(imageElement);
-
-    divFrame.appendChild(itemtag);
-    divFrame.appendChild(imageBox);
-    divFrame.appendChild(priceCard);
-
-    document.getElementById("shoppingBasket").appendChild(divFrame);
-  }
-
-
+"use strict"; 
   /*カートに入れる*/ 
   const btn = document.querySelectorAll(".btn");
 
@@ -77,6 +50,28 @@
     let  key = localStorage.key(i);
     let  valueInput = localStorage.getItem(key);
     let value = JSON.parse(valueInput);
-    console.dir(value);
-    createFrame();
+    /*フレームの生成*/
+    let divFrame =document.createElement("div");
+    divFrame.className="frame";
+
+    let itemtag =document.createElement("h3");
+    itemtag.className="item";
+    itemtag.textContent =value.item;
+    
+    let imageBox =document.createElement("figure");
+    imageBox.className="imageBox";
+
+    let imageElement =document.createElement("img");
+    imageElement.className="image";
+    imageElement.src = value.image;
+
+    let priceCard =document.createElement("p");
+    priceCard.className="price";
+    priceCard.textContent =`${value.price}円`;
+    
+    imageBox.appendChild(imageElement);
+    divFrame.appendChild(itemtag);
+    divFrame.appendChild(imageBox);
+    divFrame.appendChild(priceCard);
+    document.getElementById("shoppingBasket").appendChild(divFrame);
   }
