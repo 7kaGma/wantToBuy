@@ -46,6 +46,9 @@
     location.reload();
   })
 
+let valueId=[];
+console.dir(valueId);
+
   for (let i = 0; i < localStorage.length; i++) {
     let  key = localStorage.key(i);
     let  valueInput = localStorage.getItem(key);
@@ -68,10 +71,12 @@
     let priceCard =document.createElement("p");
     priceCard.className="price";
     priceCard.textContent =`${value.price}円`;
-    
+
     imageBox.appendChild(imageElement);
     divFrame.appendChild(itemtag);
     divFrame.appendChild(imageBox);
     divFrame.appendChild(priceCard);
     document.getElementById("shoppingBasket").appendChild(divFrame);
+
+    valueId.push(value.item)
   }
