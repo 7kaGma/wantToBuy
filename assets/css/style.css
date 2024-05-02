@@ -77,3 +77,19 @@ font-size: 1.6rem;
 .btn:hover{
   opacity: 0.8;
 }
+.submit{
+  margin: 40px auto 20px;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  background-color:white;
+  border: solid 2px orange;
+  color: orange;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.submit:hover{
+  filter: brightness(0.9);
+}
