@@ -1,9 +1,31 @@
 "use strict";
-  /*データを取得する関数*/
- 
-  function dataGet(){
-    document.querySelectorAll(".frame")
+  /*枠を生成する関数*/
+  function createFrame(){
+    let divFrame =document.createElement("div");
+    divFrame.className="frame";
+
+    let itemtag =document.createElement("h3");
+    itemtag.className="item";
+
+    let imageBox =document.createElement("figure");
+    imageBox.className="imageBox";
+
+    let imageElement =document.createElement("img");
+    imageElement.className="image";
+
+    let priceCard =document.createElement("p");
+    priceCard.className="price";
+
+    imageBox.appendChild(imageElement);
+
+    divFrame.appendChild(itemtag);
+    divFrame.appendChild(imageBox);
+    divFrame.appendChild(priceCard);
+
+    document.getElementById("shoppingBasket").appendChild(divFrame);
   }
+
+
   /*カートに入れる*/ 
   const btn = document.querySelectorAll(".btn");
 
@@ -25,8 +47,10 @@
 
       element.classList.add("hidden");
       frame.querySelector(".cancel").classList.add("appear");
+      location.reload();
     })
   })
+
 /*キャンセル*/
   const cancel = document.querySelectorAll(".cancel");
   cancel.forEach(function(element){
@@ -39,10 +63,20 @@
 
       element.classList.remove("appear");
       frame.querySelector(".btn").classList.remove("hidden");
+      location.reload();
     })
   })
 
   /*submit*/
   document.querySelector(".submit").addEventListener('click',function(){
     localStorage.clear();
+    location.reload();
   })
+
+  for (let i = 0; i < localStorage.length; i++) {
+    let  key = localStorage.key(i);
+    let  valueInput = localStorage.getItem(key);
+    let value = JSON.parse(valueInput);
+    console.dir(value);
+    createFrame();
+  }
