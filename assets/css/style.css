@@ -93,3 +93,26 @@ font-size: 1.6rem;
 .submit:hover{
   filter: brightness(0.9);
 }
+
+.cancel{
+  display: none;
+  margin: 40px auto 20px;
+  text-align: center;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  background-color:lightgray;
+  font-size: 1.4rem;
+}
+
+.cancel:hover{
+  opacity: 0.8;
+}
+
+.hidden{
+  display: none;
+}
+.appear{
+  display: block;
+}
